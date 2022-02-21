@@ -1,2 +1,2 @@
 # Grocery-Delivery-App
-# Logan Jones and Brittany Mackeown
+# Logan Jones and Zachery Younggren
