@@ -1,0 +1,53 @@
+@page
+@model GroceryDelivery.Pages_Order.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Orders</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<!-- Used to display all current orders. -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].OrderID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].PricePaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Customer.FullName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Order) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PricePaid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.FullName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.OrderID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.OrderID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.OrderID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<br>
+
+<u><a class="nav-link" asp-area="" asp-page="/Index">Back to Homepage</a></u>

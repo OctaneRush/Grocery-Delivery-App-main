@@ -1,0 +1,40 @@
+@page
+@model CustomerModel
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <!-- Table used to display all current customers. -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Email</th>
+                <th scope="col">Credit Card</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model.Customers)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(CustomerInfo => c.FirstName)</td>
+                    <td>@Html.DisplayFor(CustomerInfo => c.LastName)</td>
+                    <td>@Html.DisplayFor(CustomerInfo => c.Address)</td>
+                    <td>@Html.DisplayFor(CustomerInfo => c.PhoneNumber)</td>
+                    <td>@Html.DisplayFor(CustomerInfo => c.Email)</td>
+                    <td>@Html.DisplayFor(CustomerInfo => c.CreditCard)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<br>
+
+<u><a class="nav-link" asp-area="" asp-page="/Index">Back to Homepage</a></u>

@@ -1,0 +1,24 @@
+@page
+@model StoreLoginModel
+@{
+    ViewData["Title"] = "Store Login";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Form used to identify which store is accessing the item lists. -->
+<form class="post">
+    <div class="form-group">
+        <select asp-for="Store.StoreID" class="form-control" asp-items="ViewBag.StoreID">
+            <option value="">Which store are you?</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="hidden" asp-for="Store.StoreID" />
+        <input type="submit" value="Sign-In" class="btn btn-primary" asp-page="/Items/Index">
+    </div>
+</form>
+
+<br>
+
+<u><a class="nav-link" asp-area="" asp-page="/Index">Back to Homepage</a></u>
